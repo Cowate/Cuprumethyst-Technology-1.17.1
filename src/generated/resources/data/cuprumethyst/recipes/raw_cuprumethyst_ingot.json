@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cuprumethyst:amethyst_dust"
+    },
+    {
+      "item": "cuprumethyst:oxidized_copper_ingot"
+    }
+  ],
+  "result": {
+    "item": "cuprumethyst:raw_cuprumethyst_ingot"
+  }
+}

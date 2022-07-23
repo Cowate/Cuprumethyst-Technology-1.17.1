@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cuprumethyst:block/raw_cuprumethyst_block"
+  }
+}

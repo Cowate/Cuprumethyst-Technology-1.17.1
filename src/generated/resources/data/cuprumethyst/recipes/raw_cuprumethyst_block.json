@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:oxidized_copper"
+    },
+    "X": {
+      "item": "cuprumethyst:amethyst_dust"
+    }
+  },
+  "result": {
+    "item": "cuprumethyst:raw_cuprumethyst_block"
+  }
+}

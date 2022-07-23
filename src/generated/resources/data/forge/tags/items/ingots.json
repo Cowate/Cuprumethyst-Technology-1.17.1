@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ingots/oxidized_copper",
+    "cuprumethyst:raw_cuprumethyst_ingot"
+  ]
+}
