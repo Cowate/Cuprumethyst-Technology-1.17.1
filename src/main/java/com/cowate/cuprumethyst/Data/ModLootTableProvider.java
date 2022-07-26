@@ -2,7 +2,6 @@ package com.cowate.cuprumethyst.Data;
 
 import com.cowate.cuprumethyst.Block.SimpleBlocks;
 import com.cowate.cuprumethyst.Initailize.Registeries;
-import com.cowate.cuprumethyst.Item.SimpleItems;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import java.util.List;

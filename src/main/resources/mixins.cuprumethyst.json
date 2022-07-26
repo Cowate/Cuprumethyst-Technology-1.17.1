@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.cowate.cuprumethyst.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "refmap": "cuprumethyst.refmap.json",
+  "mixins": [
+    "BeaconAdjust"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
