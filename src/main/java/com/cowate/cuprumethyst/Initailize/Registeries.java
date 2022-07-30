@@ -5,6 +5,7 @@ import com.cowate.cuprumethyst.Cuprumethyst;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -21,6 +22,8 @@ public class Registeries {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Cuprumethyst.MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Cuprumethyst.MOD_ID);
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Cuprumethyst.MOD_ID);
+    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, Cuprumethyst.MOD_ID);
+
     public static void register() {
         IEventBus modEventbus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventbus);
@@ -28,12 +31,14 @@ public class Registeries {
         CONTAINERS.register(modEventbus);
         BLOCK_ENTITIES.register(modEventbus);
         RECIPE_SERIALIZERS.register(modEventbus);
+        POTIONS.register(modEventbus);
 
         SimpleItems.register();
         SimpleBlocks.register();
         ModContainers.register();
         ModBlockEntityTypes.register();
         ModRecipeSerializers.register();
+        ModPotions.register();
 
     }
 
