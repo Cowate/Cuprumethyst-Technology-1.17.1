@@ -25,5 +25,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.INGOT_OXIDIZED_COPPER).add(SimpleItems.OXIDIZED_COPPER_INGOT.get());
         tag(Tags.Items.INGOTS).addTag(ModTags.Items.INGOT_OXIDIZED_COPPER);
         tag(Tags.Items.INGOTS).add(SimpleItems.RAW_CUPRUMETHYST_INGOT.get());
+
     }
 }

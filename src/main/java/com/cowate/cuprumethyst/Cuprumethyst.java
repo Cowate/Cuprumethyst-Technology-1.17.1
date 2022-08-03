@@ -1,5 +1,6 @@
 package com.cowate.cuprumethyst;
 
+import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.Registeries;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,7 +23,7 @@ public class Cuprumethyst
 {
     // Directly reference a log4j logger.
     public static final String MOD_ID = "cuprumethyst";
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public Cuprumethyst() {
 
@@ -43,6 +44,7 @@ public class Cuprumethyst
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

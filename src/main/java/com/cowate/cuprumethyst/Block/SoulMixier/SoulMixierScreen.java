@@ -18,8 +18,8 @@ public class SoulMixierScreen extends AbstractContainerScreen<SoulMixierMenu> {
     private static final ResourceLocation SOUL_MIXIER_LOCATION = new ResourceLocation(Cuprumethyst.MOD_ID, "textures/gui/container/soul_mixier.png");
 
 
-    public SoulMixierScreen(SoulMixierMenu menu, Inventory inventory, Component component) {
-        super(menu, inventory, component);
+    public SoulMixierScreen(SoulMixierMenu menu, Inventory inventory, Component title) {
+        super(menu, inventory, title);
     }
 
     @Override
@@ -41,17 +41,18 @@ public class SoulMixierScreen extends AbstractContainerScreen<SoulMixierMenu> {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, SOUL_MIXIER_LOCATION);
 
+
         int posX = (this.width - this.imageWidth) / 2;
         int posY = (this.height - this.imageHeight) / 2;
         this.blit(poseStack, posX, posY, 0, 0, this.imageWidth, this.imageHeight);
         int fuel = this.menu.getFuel();
-        int len = Mth.clamp((18*fuel+20-1) / 20 , 0, 18);
+        int len = Mth.clamp((18*fuel+19) / 40 , 0, 18);
         if (len > 0) {
             this.blit(poseStack, posX + 80 , posY + 63, 176, 23, len , 4);
         }
         int progress = this.menu.getMixingTicks();
         if (progress > 0) {
-            int scaled = (int)(46.0F * ((float)progress / 400.0F));
+            int scaled = (int)(46.0F * ( 1 - ((float)progress / 400.0F)));
             this.blit(poseStack, posX + 65, posY + 39, 176, 0, scaled, 23);
         }
 

@@ -1,7 +1,10 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
-import com.cowate.cuprumethyst.Data.server.MixingTech.MixingRecipeRegistry;
+import com.cowate.cuprumethyst.Data.server.recipes.MixingRecipe;
+import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModBlockEntityTypes;
+import com.cowate.cuprumethyst.Initailize.ModPotions;
+import com.cowate.cuprumethyst.Initailize.ModRecipeSerializers;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,6 +12,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -18,9 +22,15 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 
 import javax.annotation.Nullable;
@@ -48,10 +58,13 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
     private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
 
+    private final RecipeType<?> recipeType;
 
     public SoulMixierBlockEntity(BlockPos pos, BlockState state){
         super(ModBlockEntityTypes.SOUL_MIXIER.get(), pos, state);
+        this.recipeType = ModRecipeSerializers.Types.MIXING;
     }
+
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
@@ -65,7 +78,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
     @Override
     public boolean canPlaceItem(int index, ItemStack itemStack) {
         if (index == 0 || index == 1) {
-            return MixingRecipeRegistry.isValidInput(itemStack) && this.getItem(index).isEmpty();
+            return true;
         } else if (index == 3) {
             return itemStack.is(SimpleItems.AMETHYST_DUST.get());
         } else {
@@ -80,6 +93,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
     @Override
     public boolean canTakeItemThroughFace(int index, ItemStack itemStack, Direction direction) {
+        if (mixTime > 0) return false;
         return true;
     }
 
@@ -144,8 +158,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
             itemStack.shrink(1);
             setChanged(level, pos, state);
         }
-
-        boolean can_mix = isMixable(entity.items);
+        boolean can_mix = entity.isMixable(entity.items);
         boolean is_mixing = entity.mixTime > 0;
         ItemStack itemStack0 = entity.items.get(0);
         ItemStack itemStack1 = entity.items.get(1);
@@ -154,7 +167,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
             entity.mixTime--;
             boolean is_mixed = entity.mixTime == 0;
             if (is_mixed && can_mix){
-                //doMix
+                doMix(level, pos, entity.items);
                 setChanged(level, pos, state);
             } else if (!can_mix || !itemStack0.is(entity.potion0) || !itemStack1.is(entity.potion1)){
                 entity.mixTime = 0;
@@ -165,6 +178,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
             entity.mixTime = 400;
             entity.potion0 = itemStack0.getItem();
             entity.potion1 = itemStack1.getItem();
+
             setChanged(level, pos, state);
         }
 
@@ -227,25 +241,34 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
         items.clear();
     }
 
-    private static boolean isMixable(NonNullList<ItemStack> list){
+    private boolean isMixable(NonNullList<ItemStack> list){
         ItemStack input0 = list.get(0);
         ItemStack input1 = list.get(1);
         ItemStack output = list.get(2);
-        if (input1.isEmpty() || input0.isEmpty()) {
+
+        if (input1.isEmpty() || input0.isEmpty() || !output.is(Items.GLASS_BOTTLE)) {
             return false;
         } else {
-            return MixingRecipeRegistry.canMix(input0, input1, output);
+            if (PotionMixing.onRecipes(input0, input1)) {
+                return true;
+            } else
+                return false;
         }
     }
 
     private static void doMix(Level level, BlockPos pos, NonNullList<ItemStack> list){
-        //
+        if (PotionMixing.onRecipes(list.get(0), list.get(1))) {
+            list.set(2, PotionMixing.getOutput(list.get(0), list.get(1)));
+            list.set(0, new ItemStack(Items.GLASS_BOTTLE));
+            list.set(1, new ItemStack(Items.GLASS_BOTTLE));
+        }
+        //~ Server Sound Event
     }
 
     private boolean[] getPotionBits(){
-        boolean[] potionbits = new boolean[2];
+        boolean[] potionbits = new boolean[3];
 
-        for (int i = 0; i < 2; ++i){
+        for (int i = 0; i < 3; ++i){
             if (!this.items.get(i).isEmpty()){
                 potionbits[i] = true;
             }

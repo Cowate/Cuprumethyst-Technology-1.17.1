@@ -1,13 +1,23 @@
 package com.cowate.cuprumethyst.Data;
 
 import com.cowate.cuprumethyst.Block.SimpleBlocks;
+import com.cowate.cuprumethyst.Cuprumethyst;
+import com.cowate.cuprumethyst.Data.server.recipes.MixingRecipe;
+import com.cowate.cuprumethyst.Data.server.recipes.MixingRecipeBuilder;
+import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
+import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 
 import java.util.function.Consumer;
 

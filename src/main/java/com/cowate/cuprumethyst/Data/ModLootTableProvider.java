@@ -1,5 +1,6 @@
 package com.cowate.cuprumethyst.Data;
 
+import com.cowate.cuprumethyst.Block.ComplexBlocks;
 import com.cowate.cuprumethyst.Block.SimpleBlocks;
 import com.cowate.cuprumethyst.Initailize.Registeries;
 import com.google.common.collect.ImmutableList;
@@ -47,7 +48,7 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         protected void addTables() {
             dropSelf(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
-
+            add(ComplexBlocks.SOUL_MIXIER.get(), BlockLoot::createNameableBlockEntityTable);
         }
         @Override
         protected Iterable<Block> getKnownBlocks() {

@@ -1,6 +1,8 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
-import com.cowate.cuprumethyst.Data.server.MixingTech.MixingRecipeRegistry;
+import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
+import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
+import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -8,6 +10,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraftforge.registries.IRegistryDelegate;
 
 public class SoulMixierMenu extends AbstractContainerMenu {
     private static final int INPUT_0 = 0;
@@ -28,8 +34,8 @@ public class SoulMixierMenu extends AbstractContainerMenu {
     }
 
     public SoulMixierMenu(int id, Inventory inventory, Container container, ContainerData data) {
-        super(MenuType.BREWING_STAND, id);
-        checkContainerSize(container, 5);
+        super(ModContainerTypes.SOUL_MIXIER.get(), id);
+        checkContainerSize(container, 4);
         checkContainerDataCount(data, 2);
         this.soulMixier = container;
         this.soulMixierData = data;
@@ -50,7 +56,6 @@ public class SoulMixierMenu extends AbstractContainerMenu {
         }
 
     }
-
     @Override
     public boolean stillValid(Player player) {
         return this.soulMixier.stillValid(player);
@@ -62,6 +67,10 @@ public class SoulMixierMenu extends AbstractContainerMenu {
 
     public int getMixingTicks() {
         return this.soulMixierData.get(0);
+    }
+
+    private boolean mayPickup() {
+        return soulMixierData.get(0) == 0;
     }
 
     public ItemStack quickMoveStack(Player player, int index) {
@@ -121,9 +130,12 @@ public class SoulMixierMenu extends AbstractContainerMenu {
             return mayPlaceItem(itemStack);
         }
         public static boolean mayPlaceItem(ItemStack itemStack) {
-            return MixingRecipeRegistry.isValidOutput(itemStack);
+            return itemStack.is(Items.GLASS_BOTTLE);
         }
-
+        @Override
+        public boolean mayPickup(Player player) {
+            return ((SoulMixierMenu)player.containerMenu).soulMixierData.get(0) == 0;
+        }
         @Override
         public int getMaxStackSize() {
             return 1;
@@ -162,9 +174,13 @@ public class SoulMixierMenu extends AbstractContainerMenu {
         public void onTake(Player player, ItemStack itemStack) {
             // ???
         }
+        @Override
+        public boolean mayPickup(Player player) {
+            return ((SoulMixierMenu)player.containerMenu).soulMixierData.get(0) == 0;
+        }
 
         public static boolean mayPlaceItem(ItemStack itemStack) {
-            return MixingRecipeRegistry.isValidInput(itemStack);
+            return PotionMixing.isPotionMixable(itemStack);
         }
     }
 }

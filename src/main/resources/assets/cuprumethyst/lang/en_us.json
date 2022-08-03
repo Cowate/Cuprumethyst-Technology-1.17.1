@@ -3,5 +3,9 @@
   "item.cuprumethyst.oxidized_copper_ingot" : "Oxidized Copper Ingot",
   "item.cuprumethyst.raw_cuprumethyst_ingot" : "Raw Cuprumethyst Ingot",
   "block.cuprumethyst.raw_cuprumethyst_block" : "Raw Cuprumethyst Block",
-  "container.cuprumethyst.soul_mixier" : "Soul Mixier"
+  "container.cuprumethyst.soul_mixier" : "Soul Mixier",
+
+  "item.minecraft.potion.effect.testing_liquid" : "Potion of Testing Liquid",
+  "item.minecraft.splash_potion.effect.testing_liquid" : "Splash Potion of Testing Liquid",
+  "item.minecraft.lingering_potion.effect.testing_liquid" : "Lingering Potion of Testing Liquid"
 }

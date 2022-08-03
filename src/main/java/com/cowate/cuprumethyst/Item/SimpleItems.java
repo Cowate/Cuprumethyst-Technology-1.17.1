@@ -16,7 +16,6 @@ public class SimpleItems {
     public static final RegistryObject<Item> RAW_CUPRUMETHYST_INGOT = registrySimpleItems(
             "raw_cuprumethyst_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static void register() {
-
     }
 
     private static <T extends Item> RegistryObject<Item> registrySimpleItems(String name, Supplier<T> supplier) {
