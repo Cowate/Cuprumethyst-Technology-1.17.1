@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -36,7 +37,7 @@ public class SoulMixierBlock extends BaseEntityBlock {
     };
     protected static final VoxelShape SHAPE = Shapes.or(
             Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D),
-            Block.box(3.0D, 0.0D, 3.0D, 13.0D, 14.0D, 13.0D)
+            Block.box(5.0D, 0.0D, 5.0D, 11.0D, 14.0D, 11.0D)
     );
 
     public SoulMixierBlock(Properties properties) {
@@ -57,12 +58,10 @@ public class SoulMixierBlock extends BaseEntityBlock {
         return level.isClientSide ? null : createTickerHelper(type, ModBlockEntityTypes.SOUL_MIXIER.get(), SoulMixierBlockEntity::serverTick);
     }
 
-    @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext collisionContext) {
         return SHAPE;
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.isClientSide){
             return InteractionResult.SUCCESS;
@@ -76,23 +75,24 @@ public class SoulMixierBlock extends BaseEntityBlock {
         }
     }
 
-    @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState blockState, boolean bool) {
         if (!state.is(blockState.getBlock())){
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof SoulMixierBlockEntity){
+                if (((SoulMixierBlockEntity) blockEntity).dataAccess.get(0) > 0) {
+                    ((SoulMixierBlockEntity) blockEntity).setItem(0, new ItemStack(Items.GLASS_BOTTLE));
+                    ((SoulMixierBlockEntity) blockEntity).setItem(1, new ItemStack(Items.GLASS_BOTTLE));
+                }
                 Containers.dropContents(level, pos, (SoulMixierBlockEntity)blockEntity);
             }
             super.onRemove(state, level, pos, blockState, bool);
         }
     }
 
-    @Override
     public boolean hasAnalogOutputSignal(BlockState p_60457_) {
         return true;
     }
 
-    @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack itemStack) {
         if (itemStack.hasCustomHoverName()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -102,12 +102,10 @@ public class SoulMixierBlock extends BaseEntityBlock {
         }
     }
 
-    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(HAS_BOTTLE[0], HAS_BOTTLE[1], HAS_BOTTLE[2]);
     }
 
-    @Override
     public boolean isPathfindable(BlockState p_60475_, BlockGetter p_60476_, BlockPos p_60477_, PathComputationType p_60478_) {
         return false;
     }

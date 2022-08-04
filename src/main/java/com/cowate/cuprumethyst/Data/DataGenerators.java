@@ -1,5 +1,6 @@
 package com.cowate.cuprumethyst.Data;
 
+import com.cowate.cuprumethyst.Block.ComplexBlocks;
 import com.cowate.cuprumethyst.Block.SoulMixier.SoulMixierScreen;
 import com.cowate.cuprumethyst.Cuprumethyst;
 
@@ -9,6 +10,8 @@ import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
 import com.cowate.cuprumethyst.Initailize.ModPotions;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -40,6 +43,7 @@ public class DataGenerators {
     public static void clientSetup(FMLClientSetupEvent event) {
 
         MenuScreens.register(ModContainerTypes.SOUL_MIXIER.get(), SoulMixierScreen::new);
+        ItemBlockRenderTypes.setRenderLayer(ComplexBlocks.SOUL_MIXIER.get(), RenderType.cutout());
     }
 
 }
