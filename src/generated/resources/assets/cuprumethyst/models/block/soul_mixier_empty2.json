@@ -1,0 +1,39 @@
+{
+  "textures": {
+    "2": "minecraft:block/brewing_stand"
+  },
+  "elements": [
+    {
+      "from": [
+        8,
+        2,
+        10
+      ],
+      "to": [
+        8,
+        11,
+        15
+      ],
+      "faces": {
+        "west": {
+          "texture": "#2",
+          "uv": [
+            15.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#2",
+          "uv": [
+            15.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        }
+      }
+    }
+  ]
+}

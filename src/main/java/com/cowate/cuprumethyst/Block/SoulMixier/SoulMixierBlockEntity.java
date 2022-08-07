@@ -1,9 +1,7 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
-import com.cowate.cuprumethyst.Data.server.recipes.MixingRecipe;
 import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModBlockEntityTypes;
-import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.cowate.cuprumethyst.Initailize.ModRecipeSerializers;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.core.BlockPos;
@@ -12,7 +10,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,15 +19,10 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 
 import javax.annotation.Nullable;
@@ -44,33 +36,26 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
     private static final int[] SLOT_FOR_UP = new int[]{0, 1, 3};
     private static final int[] SLOT_FOR_SIDES = new int[]{0, 1, 2};
     private static final int[] SLOT_FOR_DOWN = new int[]{2};
-
+    private static final int[] SLOT_FOR_NONE = new int[]{};
     public static final int MAX_FUEL = 40;
     public static final int FUEL_INC = 20;
     int fuel;
-
     int mixTime;
-
     private boolean[] lastPotionCount;
-
     private Item potion0;
     private Item potion1;
-
     private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
-
     private final RecipeType<?> recipeType;
-
     public SoulMixierBlockEntity(BlockPos pos, BlockState state){
         super(ModBlockEntityTypes.SOUL_MIXIER.get(), pos, state);
         this.recipeType = ModRecipeSerializers.Types.MIXING;
     }
-
-
     @Override
     public int[] getSlotsForFace(Direction direction) {
         if (direction == Direction.UP) {
             return  SLOT_FOR_UP;
         } else {
+            if (mixTime > 0) return SLOT_FOR_NONE;
             return direction == Direction.DOWN ? SLOT_FOR_DOWN : SLOT_FOR_SIDES;
         }
     }
@@ -80,7 +65,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
         if (index == 0 || index == 1) {
             return true;
         } else if (index == 3) {
-            return itemStack.is(SimpleItems.AMETHYST_DUST.get());
+            return itemStack.is(SimpleItems.SOUL_POWDER.get());
         } else {
             return itemStack.is(Items.GLASS_BOTTLE);
         }
@@ -153,7 +138,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SoulMixierBlockEntity entity){
         ItemStack itemStack = entity.items.get(FUEL_SLOT);
-        if (entity.fuel <= 20 && itemStack.is(SimpleItems.AMETHYST_DUST.get())){
+        if (entity.fuel <= 20 && itemStack.is(SimpleItems.SOUL_POWDER.get())){
             entity.fuel += 20;
             itemStack.shrink(1);
             setChanged(level, pos, state);
@@ -199,6 +184,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
 
     }
+
 
     @Override
     public ItemStack getItem(int index) {

@@ -4,6 +4,7 @@ import com.cowate.cuprumethyst.Block.ComplexBlocks;
 import com.cowate.cuprumethyst.Block.SoulMixier.SoulMixierScreen;
 import com.cowate.cuprumethyst.Cuprumethyst;
 
+import com.cowate.cuprumethyst.Data.client.ModBlockModelProvider;
 import com.cowate.cuprumethyst.Data.client.ModBlockStateProvider;
 import com.cowate.cuprumethyst.Data.client.ModItemModelProvider;
 import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
@@ -28,6 +29,7 @@ public class DataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
+        gen.addProvider(new ModBlockModelProvider(gen, existingFileHelper));
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
 

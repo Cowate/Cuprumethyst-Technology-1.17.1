@@ -15,6 +15,10 @@ public class SimpleItems {
             "oxidized_copper_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> RAW_CUPRUMETHYST_INGOT = registrySimpleItems(
             "raw_cuprumethyst_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> SOUL_POWDER = registrySimpleItems(
+            "soul_powder", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> SOUL_ROD = registrySimpleItems(
+            "soul_rod", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static void register() {
     }
 

@@ -2,7 +2,6 @@ package com.cowate.cuprumethyst.Block.SoulMixier;
 
 import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
-import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -11,9 +10,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraftforge.registries.IRegistryDelegate;
 
 public class SoulMixierMenu extends AbstractContainerMenu {
     private static final int INPUT_0 = 0;
@@ -150,7 +146,7 @@ public class SoulMixierMenu extends AbstractContainerMenu {
             return mayPlaceItem(itemStack);
         }
         public static boolean mayPlaceItem(ItemStack itemStack) {
-            return itemStack.is(SimpleItems.AMETHYST_DUST.get());
+            return itemStack.is(SimpleItems.SOUL_POWDER.get());
         }
         @Override
         public int getMaxStackSize() {

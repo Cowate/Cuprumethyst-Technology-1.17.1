@@ -22,6 +22,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "amethyst_dust");
         builder(itemGenerated, "oxidized_copper_ingot");
         builder(itemGenerated, "raw_cuprumethyst_ingot");
+        builder(itemGenerated, "soul_powder");
+        builder(itemGenerated, "soul_rod");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
