@@ -37,15 +37,15 @@ public class SoulMixierBlock extends BaseEntityBlock {
     };
     private static final VoxelShape SHAPE = Shapes.or(
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D),
-            Block.box(4.0D, 2.0D, 1.0D, 4.0D, 11.0D, 6.0D)
+            Block.box(2.0D, 1.0D, 6.0D, 14.0D, 14.0D, 10.0D)
     );
 
     public SoulMixierBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(getStateDefinition().any()
-                .setValue(HAS_BOTTLE[0], Boolean.valueOf(false))
-                .setValue(HAS_BOTTLE[1], Boolean.valueOf(false))
-                .setValue(HAS_BOTTLE[2], Boolean.valueOf(false))
+                .setValue(HAS_BOTTLE[0], Boolean.FALSE)
+                .setValue(HAS_BOTTLE[1], Boolean.FALSE)
+                .setValue(HAS_BOTTLE[2], Boolean.FALSE)
         );
 
     }
@@ -60,7 +60,7 @@ public class SoulMixierBlock extends BaseEntityBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext collisionContext) {
-        return Shapes.block();
+        return SHAPE;
     }
 
     public RenderShape getRenderShape(BlockState blockState) {

@@ -18,10 +18,7 @@ public class ComplexBlocks{
     public static final RegistryObject<SoulMixierBlock> SOUL_MIXIER = register(
             "soul_mixier",
             () -> new SoulMixierBlock(BlockBehaviour.Properties
-                    .copy(Blocks.BREWING_STAND)
-                    .noCollission()
-                    .dynamicShape()
-                    ),
+                    .copy(Blocks.BREWING_STAND)),
             CreativeModeTab.TAB_BREWING
     );
 

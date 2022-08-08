@@ -90,7 +90,8 @@
   "textures": {
     "0": "minecraft:block/polished_blackstone_bricks",
     "1": "minecraft:block/polished_blackstone",
-    "2": "minecraft:block/brewing_stand"
+    "2": "minecraft:block/brewing_stand",
+    "particle": "minecraft:block/polished_blackstone"
   },
   "elements": [
     {

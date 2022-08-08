@@ -28,6 +28,7 @@ public class ModBlockModelProvider extends BlockModelProvider {
     private void soulMixierBottle(String name, float[] fromto, float[] uvss) {
         ModelBuilder<BlockModelBuilder>.ElementBuilder this_bottle = withoutExitingParent(name)
                 .texture("2", "minecraft:block/brewing_stand")
+                .texture("particle", "minecraft:block/polished_blackstone")
                 .element().from(fromto[0], fromto[1], fromto[2]).to(fromto[3], fromto[4], fromto[5]);
         this_bottle.face(Direction.EAST)
                 .uvs(uvss[0], uvss[1], uvss[2], uvss[3]).texture("#2");
@@ -40,6 +41,7 @@ public class ModBlockModelProvider extends BlockModelProvider {
                 .texture("0", "minecraft:block/polished_blackstone_bricks")
                 .texture("1", "minecraft:block/polished_blackstone")
                 .texture("2", "minecraft:block/brewing_stand")
+                .texture("particle", "minecraft:block/polished_blackstone")
                         .element().from(0.0F, 0.0F, 0.0F).to(16.0F, 1.0F, 16.0F)
                         .allFaces((direction, faceBuilder) -> {
                             faceBuilder.texture("#0");

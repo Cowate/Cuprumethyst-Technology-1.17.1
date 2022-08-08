@@ -78,8 +78,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
     @Override
     public boolean canTakeItemThroughFace(int index, ItemStack itemStack, Direction direction) {
-        if (mixTime > 0) return false;
-        return true;
+        return mixTime <= 0;
     }
 
     @Override
@@ -110,14 +109,11 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
     protected final ContainerData dataAccess = new ContainerData() {
         @Override
         public int get(int index) {
-            switch (index) {
-                case 0 :
-                    return SoulMixierBlockEntity.this.mixTime;
-                case 1:
-                    return SoulMixierBlockEntity.this.fuel;
-                default:
-                    return 0;
-            }
+            return switch (index) {
+                case 0 -> SoulMixierBlockEntity.this.mixTime;
+                case 1 -> SoulMixierBlockEntity.this.fuel;
+                default -> 0;
+            };
         }
 
         @Override
@@ -176,7 +172,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
             }
 
             for (int i = 0; i < SoulMixierBlock.HAS_BOTTLE.length; ++i){
-                blockState = blockState.setValue(SoulMixierBlock.HAS_BOTTLE[i], Boolean.valueOf(potionbit[i]));
+                blockState = blockState.setValue(SoulMixierBlock.HAS_BOTTLE[i], potionbit[i]);
             }
 
             level.setBlock(pos, blockState, 2);
@@ -235,10 +231,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
         if (input1.isEmpty() || input0.isEmpty() || !output.is(Items.GLASS_BOTTLE)) {
             return false;
         } else {
-            if (PotionMixing.onRecipes(input0, input1)) {
-                return true;
-            } else
-                return false;
+            return PotionMixing.onRecipes(input0, input1);
         }
     }
 
