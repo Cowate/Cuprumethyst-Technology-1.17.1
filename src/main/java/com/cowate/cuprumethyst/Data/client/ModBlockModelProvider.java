@@ -2,6 +2,7 @@ package com.cowate.cuprumethyst.Data.client;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
 import it.unimi.dsi.fastutil.chars.CharArraySet;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -108,7 +109,24 @@ public class ModBlockModelProvider extends BlockModelProvider {
                                 case UP -> faceBuilder.uvs(9.0F, 10.0F, 13.0F, 15.0F);
                                 case DOWN -> faceBuilder.uvs(11.0F, 10.0F, 15.0F, 15.0F);
                             }
-                        });
+                        }).end()
+                .transforms()
+                        .transform(ModelBuilder.Perspective.THIRDPERSON_RIGHT)
+                                .translation(0.0F, 1.5F, 0.0F).scale(0.2F, 0.2F, 0.2F).end()
+                        .transform(ModelBuilder.Perspective.THIRDPERSON_LEFT)
+                                .translation(0.0F, 1.5F, 0.0F).scale(0.2F, 0.2F, 0.2F).end()
+                        .transform(ModelBuilder.Perspective.FIRSTPERSON_RIGHT)
+                                .scale(0.5F, 0.5F, 0.5F).end()
+                        .transform(ModelBuilder.Perspective.FIRSTPERSON_LEFT)
+                                .scale(0.5F, 0.5F, 0.5F).end()
+                        .transform(ModelBuilder.Perspective.GROUND)
+                                .translation(0.0F, -2.0F, 0.0F).scale(0.2F, 0.2F, 0.2F).end()
+                        .transform(ModelBuilder.Perspective.GUI)
+                                .rotation(30.0F, 45.0F, 0.0F).translation(0.0F, 0.75F, 0.0F).scale(0.6F, 0.6F, 0.6F).end()
+                        .transform(ModelBuilder.Perspective.HEAD)
+                                .translation(0.0F, 13.0F, 0.0F).end()
+                        .transform(ModelBuilder.Perspective.FIXED)
+                                .rotation(0.0F, 180.0F, 0.0F).scale(0.5F, 0.5F, 0.5F);
 
         soulMixierBottle("soul_mixier_bottle0",
                 new float[]{12.0F, 2.0F, 1.0F, 12.0F, 11.0F, 6.0F},
@@ -128,5 +146,6 @@ public class ModBlockModelProvider extends BlockModelProvider {
         soulMixierBottle("soul_mixier_empty2",
                 new float[]{8.0F, 2.0F, 10.0F, 8.0F, 11.0F, 15.0F},
                 new float[]{15.0F, 15.0F, 16.0F, 16.0F, 15.0F, 15.0F, 16.0F, 16.0F});
+
     }
 }

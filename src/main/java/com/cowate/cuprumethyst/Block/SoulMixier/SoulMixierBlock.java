@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -31,15 +30,14 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 
 public class SoulMixierBlock extends BaseEntityBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty[] HAS_BOTTLE = new BooleanProperty[]{
             BlockStateProperties.HAS_BOTTLE_0,
             BlockStateProperties.HAS_BOTTLE_1,
             BlockStateProperties.HAS_BOTTLE_2
     };
-    protected static final VoxelShape SHAPE = Shapes.or(
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
-            Block.box(2.0D, 2.0D, 6.0D, 14.0D, 14.0D, 10.0D)
+    private static final VoxelShape SHAPE = Shapes.or(
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D),
+            Block.box(4.0D, 2.0D, 1.0D, 4.0D, 11.0D, 6.0D)
     );
 
     public SoulMixierBlock(Properties properties) {
@@ -49,6 +47,7 @@ public class SoulMixierBlock extends BaseEntityBlock {
                 .setValue(HAS_BOTTLE[1], Boolean.valueOf(false))
                 .setValue(HAS_BOTTLE[2], Boolean.valueOf(false))
         );
+
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -61,10 +60,10 @@ public class SoulMixierBlock extends BaseEntityBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext collisionContext) {
-        return SHAPE;
+        return Shapes.block();
     }
-    @Override
-    public RenderShape getRenderShape(BlockState p_49232_) {
+
+    public RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.MODEL;
     }
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -94,10 +93,6 @@ public class SoulMixierBlock extends BaseEntityBlock {
         }
     }
 
-    public boolean hasAnalogOutputSignal(BlockState p_60457_) {
-        return true;
-    }
-
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack itemStack) {
         if (itemStack.hasCustomHoverName()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -108,6 +103,7 @@ public class SoulMixierBlock extends BaseEntityBlock {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
         builder.add(HAS_BOTTLE[0], HAS_BOTTLE[1], HAS_BOTTLE[2]);
     }
 

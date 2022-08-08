@@ -4,7 +4,10 @@
   "item.cuprumethyst.raw_cuprumethyst_ingot" : "Raw Cuprumethyst Ingot",
   "item.cuprumethyst.soul_powder" : "Soul Powder",
   "item.cuprumethyst.soul_rod" : "Soul Rod",
+
+  "block.cuprumethyst.soul_mixier" : "Soul Mixier",
   "block.cuprumethyst.raw_cuprumethyst_block" : "Raw Cuprumethyst Block",
+
   "container.cuprumethyst.soul_mixier" : "Soul Mixier",
 
   "item.minecraft.potion.effect.testing_liquid" : "Potion of Testing Liquid",
