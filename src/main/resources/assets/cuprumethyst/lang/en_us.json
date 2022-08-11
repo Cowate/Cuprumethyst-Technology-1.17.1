@@ -12,5 +12,16 @@
 
   "item.minecraft.potion.effect.testing_liquid" : "Potion of Testing Liquid",
   "item.minecraft.splash_potion.effect.testing_liquid" : "Splash Potion of Testing Liquid",
-  "item.minecraft.lingering_potion.effect.testing_liquid" : "Lingering Potion of Testing Liquid"
+  "item.minecraft.lingering_potion.effect.testing_liquid" : "Lingering Potion of Testing Liquid",
+  "item.minecraft.potion.effect.crimilidin" : "Crimilidin",
+  "item.minecraft.splash_potion.effect.crimilidin" : "Crimilidin",
+  "item.minecraft.lingering_potion.effect.crimilidin" : "Crimilidin",
+  "item.minecraft.potion.effect.warpilidin" : "Warpilidin",
+  "item.minecraft.splash_potion.effect.warpilidin" : "Warpilidin",
+  "item.minecraft.lingering_potion.effect.warpilidin" : "Warpilidin",
+  "item.minecraft.potion.effect.hyperplasial" : "Potion of Hyperplasial",
+  "item.minecraft.splash_potion.effect.hyperplasial" : "Splash Potion of Hyperplasial",
+  "item.minecraft.lingering_potion.effect.hyperplasial" : "Lingering Potion of Hyperplasial"
+
+
 }

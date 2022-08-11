@@ -1,8 +1,6 @@
 package com.cowate.cuprumethyst.Data.client;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
-import it.unimi.dsi.fastutil.chars.CharArraySet;
-import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;

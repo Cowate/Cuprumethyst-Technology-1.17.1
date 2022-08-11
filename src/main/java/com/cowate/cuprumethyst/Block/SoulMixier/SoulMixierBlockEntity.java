@@ -1,5 +1,6 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
+import com.cowate.cuprumethyst.Cuprumethyst;
 import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModBlockEntityTypes;
 import com.cowate.cuprumethyst.Initailize.ModRecipeSerializers;
@@ -23,6 +24,13 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import javax.annotation.Nullable;
@@ -35,7 +43,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
     private static final int FUEL_SLOT = 3;
     private static final int[] SLOT_FOR_UP = new int[]{0, 1, 3};
     private static final int[] SLOT_FOR_SIDES = new int[]{0, 1, 2};
-    private static final int[] SLOT_FOR_DOWN = new int[]{2};
+    private static final int[] SLOT_FOR_DOWN = new int[]{0, 1, 2};
     private static final int[] SLOT_FOR_NONE = new int[]{};
     public static final int MAX_FUEL = 40;
     public static final int FUEL_INC = 20;
@@ -46,10 +54,12 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
     private Item potion1;
     private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
     private final RecipeType<?> recipeType;
+    private static final Logger LOGGER = LogManager.getLogger(Cuprumethyst.MOD_ID);
     public SoulMixierBlockEntity(BlockPos pos, BlockState state){
         super(ModBlockEntityTypes.SOUL_MIXIER.get(), pos, state);
         this.recipeType = ModRecipeSerializers.Types.MIXING;
     }
+
     @Override
     public int[] getSlotsForFace(Direction direction) {
         if (direction == Direction.UP) {
@@ -58,6 +68,22 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
             if (mixTime > 0) return SLOT_FOR_NONE;
             return direction == Direction.DOWN ? SLOT_FOR_DOWN : SLOT_FOR_SIDES;
         }
+
+    }
+
+    LazyOptional<? extends IItemHandler>[] handlers =
+            SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+    @Override
+    public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
+        if (!this.remove && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if (facing == Direction.UP)
+                return handlers[0].cast();
+            else if (facing == Direction.DOWN)
+                return handlers[1].cast();
+            else
+                return handlers[2].cast();
+        }
+        return super.getCapability(capability, facing);
     }
 
     @Override
@@ -177,10 +203,7 @@ public class SoulMixierBlockEntity extends BaseContainerBlockEntity implements W
 
             level.setBlock(pos, blockState, 2);
         }
-
-
     }
-
 
     @Override
     public ItemStack getItem(int index) {

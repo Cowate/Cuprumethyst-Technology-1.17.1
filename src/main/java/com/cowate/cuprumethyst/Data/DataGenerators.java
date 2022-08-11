@@ -7,14 +7,16 @@ import com.cowate.cuprumethyst.Cuprumethyst;
 import com.cowate.cuprumethyst.Data.client.ModBlockModelProvider;
 import com.cowate.cuprumethyst.Data.client.ModBlockStateProvider;
 import com.cowate.cuprumethyst.Data.client.ModItemModelProvider;
-import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
+import com.cowate.cuprumethyst.Data.server.recipes.PlantRecipes;
 import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
 import com.cowate.cuprumethyst.Initailize.ModPotions;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +48,16 @@ public class DataGenerators {
 
         MenuScreens.register(ModContainerTypes.SOUL_MIXIER.get(), SoulMixierScreen::new);
         ItemBlockRenderTypes.setRenderLayer(ComplexBlocks.SOUL_MIXIER.get(), RenderType.cutout());
+    }
+
+    @SubscribeEvent
+    public static void setup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+
+            BrewingRecipeRegistry.addRecipe(new PlantRecipes(Potions.WATER, Items.CRIMSON_ROOTS, ModPotions.CRIMILIDIN.get()));
+            BrewingRecipeRegistry.addRecipe(new PlantRecipes(Potions.WATER, Items.WARPED_ROOTS, ModPotions.WARPILIDIN.get()));
+
+        });
     }
 
 }

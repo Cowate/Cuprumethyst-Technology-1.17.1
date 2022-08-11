@@ -4,6 +4,7 @@ import com.cowate.cuprumethyst.Block.ComplexBlocks;
 import com.cowate.cuprumethyst.Block.SimpleBlocks;
 import com.cowate.cuprumethyst.Cuprumethyst;
 import com.cowate.cuprumethyst.Item.SimpleItems;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.Potion;
@@ -19,6 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Registeries {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Cuprumethyst.MOD_ID);
+    public static final DeferredRegister<MobEffect> MOB_EFFECT = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Cuprumethyst.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Cuprumethyst.MOD_ID);
     public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, Cuprumethyst.MOD_ID);
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Cuprumethyst.MOD_ID);
@@ -28,6 +30,7 @@ public class Registeries {
     public static void register() {
         IEventBus modEventbus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventbus);
+        MOB_EFFECT.register(modEventbus);
         BLOCKS.register(modEventbus);
         POTIONS.register(modEventbus);
         CONTAINERS.register(modEventbus);
@@ -37,6 +40,7 @@ public class Registeries {
 
         SimpleItems.register();
         SimpleBlocks.register();
+        ModMobEffects.register();
         ComplexBlocks.register();
         ModPotions.register();
         ModContainerTypes.register();

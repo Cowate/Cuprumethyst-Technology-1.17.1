@@ -47,7 +47,6 @@ public class SoulMixierBlock extends BaseEntityBlock {
                 .setValue(HAS_BOTTLE[1], Boolean.FALSE)
                 .setValue(HAS_BOTTLE[2], Boolean.FALSE)
         );
-
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

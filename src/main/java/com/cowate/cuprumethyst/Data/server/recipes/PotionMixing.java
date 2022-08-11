@@ -3,7 +3,6 @@ package com.cowate.cuprumethyst.Data.server.recipes;
 import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.google.common.collect.Lists;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
@@ -67,6 +66,7 @@ public class PotionMixing {
 
     static {
         addMix(Potions.WATER, Potions.WATER, ModPotions.TESTING_LIQUID.get());
+        addMix(ModPotions.CRIMILIDIN.get(), ModPotions.WARPILIDIN.get(), ModPotions.HYPERPLASIAL.get());
     }
 
     private static void addMix(Potion in0, Potion in1, Potion out) {
