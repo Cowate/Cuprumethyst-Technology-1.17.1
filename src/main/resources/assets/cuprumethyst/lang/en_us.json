@@ -4,9 +4,14 @@
   "item.cuprumethyst.raw_cuprumethyst_ingot" : "Raw Cuprumethyst Ingot",
   "item.cuprumethyst.soul_powder" : "Soul Powder",
   "item.cuprumethyst.soul_rod" : "Soul Rod",
+  "item.cuprumethyst.cuprumethyst_ingot" : "Cuprumethyst Ingot",
+  "item.cuprumethyst.pebble_stone" : "Stone Pebble",
+  "item.cuprumethyst.pebble_blackstone" : "Blackstone Pebble",
+  "item.cuprumethyst.sling" : "Sling",
 
   "block.cuprumethyst.soul_mixier" : "Soul Mixier",
   "block.cuprumethyst.raw_cuprumethyst_block" : "Raw Cuprumethyst Block",
+  "block.cuprumethyst.cuprumethyst_block" : "Cuprumethyst Block",
 
   "container.cuprumethyst.soul_mixier" : "Soul Mixier",
 
@@ -21,7 +26,9 @@
   "item.minecraft.lingering_potion.effect.warpilidin" : "Warpilidin",
   "item.minecraft.potion.effect.hyperplasial" : "Potion of Hyperplasial",
   "item.minecraft.splash_potion.effect.hyperplasial" : "Splash Potion of Hyperplasial",
-  "item.minecraft.lingering_potion.effect.hyperplasial" : "Lingering Potion of Hyperplasial"
+  "item.minecraft.lingering_potion.effect.hyperplasial" : "Lingering Potion of Hyperplasial",
 
+  "effect.cuprumethyst.hyperplasial" : "Hyperplasial",
 
+  "death.attack.hyperplasial" : "%1$s's body is collapsed."
 }

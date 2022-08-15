@@ -120,7 +120,7 @@ public class ModBlockModelProvider extends BlockModelProvider {
                         .transform(ModelBuilder.Perspective.FIRSTPERSON_LEFT)
                                 .scale(0.5F, 0.5F, 0.5F).end()
                         .transform(ModelBuilder.Perspective.GROUND)
-                                .translation(0.0F, -2.0F, 0.0F).scale(0.2F, 0.2F, 0.2F).end()
+                                .translation(0.0F, 1.0F, 0.0F).scale(0.35F, 0.35F, 0.35F).end()
                         .transform(ModelBuilder.Perspective.GUI)
                                 .rotation(30.0F, 45.0F, 0.0F).translation(0.0F, 0.75F, 0.0F).scale(0.6F, 0.6F, 0.6F).end()
                         .transform(ModelBuilder.Perspective.HEAD)

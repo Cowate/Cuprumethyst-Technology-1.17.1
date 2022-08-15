@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:storage_blocks/oxidized_copper"
+    "#forge:storage_blocks/oxidized_copper",
+    "#cuprumethyst:storage_blocks/cuprumethyst"
   ]
 }

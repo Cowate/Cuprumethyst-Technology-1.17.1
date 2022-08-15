@@ -16,6 +16,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         withExistingParent("raw_cuprumethyst_block", modLoc("block/raw_cuprumethyst_block"));
+        withExistingParent("cuprumethyst_block", modLoc("block/cuprumethyst_block"));
         withExistingParent("soul_mixier", modLoc("block/soul_mixier"));
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
@@ -24,6 +25,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "raw_cuprumethyst_ingot");
         builder(itemGenerated, "soul_powder");
         builder(itemGenerated, "soul_rod");
+        builder(itemGenerated, "cuprumethyst_ingot");
+        builder(itemGenerated, "pebble_stone");
+        builder(itemGenerated, "pebble_blackstone");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

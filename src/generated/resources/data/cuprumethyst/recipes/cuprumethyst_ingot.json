@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cuprumethyst:cuprumethyst_block"
+    }
+  ],
+  "result": {
+    "item": "cuprumethyst:cuprumethyst_ingot",
+    "count": 9
+  }
+}

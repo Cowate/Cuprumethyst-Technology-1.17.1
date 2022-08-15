@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "cuprumethyst:raw_cuprumethyst_ingot"
+  },
+  "result": "cuprumethyst:cuprumethyst_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

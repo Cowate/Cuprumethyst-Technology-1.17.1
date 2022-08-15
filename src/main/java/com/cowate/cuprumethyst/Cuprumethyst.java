@@ -41,9 +41,7 @@ public class Cuprumethyst
     private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
+        LOGGER.info("Welcome to " + Cuprumethyst.MOD_ID);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

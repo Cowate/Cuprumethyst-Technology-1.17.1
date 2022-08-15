@@ -25,6 +25,12 @@ public class SimpleBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.COPPER)));
 
+    public static  final RegistryObject<Block> CUPRUMETHYST_BLOCK = register(
+            "cuprumethyst_block", () -> new Block(BlockBehaviour.Properties
+                    .of(Material.METAL)
+                    .strength(3, 10)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.COPPER)));
     public static void register() {
 
     }

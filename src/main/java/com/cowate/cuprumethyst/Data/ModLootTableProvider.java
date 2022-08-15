@@ -48,6 +48,7 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         protected void addTables() {
             dropSelf(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
+            dropSelf(SimpleBlocks.CUPRUMETHYST_BLOCK.get());
             add(ComplexBlocks.SOUL_MIXIER.get(), BlockLoot::createNameableBlockEntityTable);
         }
         @Override

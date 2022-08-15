@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "cuprumethyst:raw_cuprumethyst_block"
+    "cuprumethyst:raw_cuprumethyst_block",
+    "cuprumethyst:cuprumethyst_block",
+    "cuprumethyst:soul_mixier"
   ]
 }

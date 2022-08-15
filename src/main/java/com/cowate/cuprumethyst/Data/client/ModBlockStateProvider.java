@@ -18,6 +18,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
+        simpleBlock(SimpleBlocks.CUPRUMETHYST_BLOCK.get());
         getMultipartBuilder(ComplexBlocks.SOUL_MIXIER.get())
                 .part().modelFile(models().getExistingFile(new ResourceLocation(ModId, "block/soul_mixier"))).addModel().end()
                 .part().modelFile(models().getExistingFile(new ResourceLocation(ModId, "block/soul_mixier_bottle0"))).addModel()

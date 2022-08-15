@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "cuprumethyst:raw_cuprumethyst_ingot"
+      "minecraft:raw_cuprumethyst_ingot_from_block"
     ]
   },
   "criteria": {
-    "has_oxidized_copper_ingot": {
+    "has_raw_cuprumethyst_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "cuprumethyst:oxidized_copper_ingot"
+              "cuprumethyst:raw_cuprumethyst_block"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "cuprumethyst:raw_cuprumethyst_ingot"
+        "recipe": "minecraft:raw_cuprumethyst_ingot_from_block"
       }
     }
   },
   "requirements": [
     [
-      "has_oxidized_copper_ingot",
+      "has_raw_cuprumethyst_block",
       "has_the_recipe"
     ]
   ]

@@ -19,6 +19,12 @@ public class SimpleItems {
             "soul_powder", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> SOUL_ROD = registrySimpleItems(
             "soul_rod", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> CUPRUMETHYST_INGOT = registrySimpleItems(
+            "cuprumethyst_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> PEBBLE_STONE = registrySimpleItems(
+            "pebble_stone", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> PEBBLE_BLACKSTONE = registrySimpleItems(
+            "pebble_blackstone", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static void register() {
     }
 
