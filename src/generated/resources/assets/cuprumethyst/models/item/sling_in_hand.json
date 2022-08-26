@@ -1,0 +1,150 @@
+{
+  "gui_light": "front",
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        4.6,
+        0
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        4.6,
+        0
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -3.25,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -3.25,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -45,
+        135,
+        90
+      ],
+      "translation": [
+        4.5,
+        3,
+        0
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        14,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "sling": "cuprumethyst:item/sling_model"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        0,
+        3
+      ],
+      "to": [
+        10,
+        4,
+        13
+      ],
+      "faces": {
+        "down": {
+          "texture": "#sling",
+          "uv": [
+            9.0,
+            0.0,
+            7.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#sling",
+          "uv": [
+            7.0,
+            5.0,
+            5.0,
+            0.0
+          ]
+        },
+        "north": {
+          "texture": "#sling",
+          "uv": [
+            5.0,
+            5.0,
+            7.0,
+            7.0
+          ]
+        },
+        "south": {
+          "texture": "#sling",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#sling",
+          "uv": [
+            7.0,
+            5.0,
+            12.0,
+            7.0
+          ]
+        },
+        "east": {
+          "texture": "#sling",
+          "uv": [
+            0.0,
+            0.5,
+            5.0,
+            7.0
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 package com.cowate.cuprumethyst;
 
 import com.cowate.cuprumethyst.Initailize.Registeries;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +27,7 @@ public class Cuprumethyst
 
     public Cuprumethyst() {
 
+        // Basic Registery
         Registeries.register();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -56,6 +58,7 @@ public class Cuprumethyst
         LOGGER.info("Got IMC {}", event.getIMCStream().
                 map(m->m.messageSupplier().get()).
                 collect(Collectors.toList()));
+
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
@@ -66,14 +69,14 @@ public class Cuprumethyst
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
-    /*
+
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
+        public static void onRegistry(final RegistryEvent.Register<?> RegistryEvent) {
+            LOGGER.info("HELLO from " + RegistryEvent.toString());
+
         }
     }
-    */
+
 }

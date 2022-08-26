@@ -19,7 +19,7 @@ public class ModBlockModelProvider extends BlockModelProvider {
         soulMixierModel();
 
     }
-    public BlockModelBuilder withoutExitingParent(String name){
+    private BlockModelBuilder withoutExitingParent(String name){
         return getBuilder(name);
     }
 

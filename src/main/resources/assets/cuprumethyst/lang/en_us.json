@@ -28,6 +28,11 @@
   "item.minecraft.splash_potion.effect.hyperplasial" : "Splash Potion of Hyperplasial",
   "item.minecraft.lingering_potion.effect.hyperplasial" : "Lingering Potion of Hyperplasial",
 
+  "item.minecraft.tipped_arrow.effect.testing_liquid" : "Arrow of Testing Liquid",
+  "item.minecraft.tipped_arrow.effect.crimilidin" : "Arrow of Crimilidin",
+  "item.minecraft.tipped_arrow.effect.warpilidin" : "Arrow of Warpilidin",
+  "item.minecraft.tipped_arrow.effect.hyperplasial" : "Arrow of Hyperplasial",
+
   "effect.cuprumethyst.hyperplasial" : "Hyperplasial",
 
   "death.attack.hyperplasial" : "%1$s's body is collapsed."

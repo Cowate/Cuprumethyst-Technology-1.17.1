@@ -3,6 +3,7 @@ package com.cowate.cuprumethyst.Item;
 import com.cowate.cuprumethyst.Initailize.Registeries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import java.util.function.Supplier;
