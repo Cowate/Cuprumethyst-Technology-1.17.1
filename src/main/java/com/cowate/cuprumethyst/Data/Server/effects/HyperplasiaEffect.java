@@ -1,16 +1,11 @@
-package com.cowate.cuprumethyst.Data.server.effects;
+package com.cowate.cuprumethyst.Data.Server.effects;
 
-import com.cowate.cuprumethyst.Data.server.misc.ModDamageSource;
+import com.cowate.cuprumethyst.Data.Server.misc.ModDamageSource;
 import com.cowate.cuprumethyst.Initailize.ModMobEffects;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-
-import javax.annotation.Nullable;
 
 public class HyperplasiaEffect extends MobEffect {
     private boolean activeOnEntity;

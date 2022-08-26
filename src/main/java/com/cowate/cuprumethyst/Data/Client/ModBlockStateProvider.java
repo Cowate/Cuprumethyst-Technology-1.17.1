@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.client;
+package com.cowate.cuprumethyst.Data.Client;
 
 import com.cowate.cuprumethyst.Block.ComplexBlocks;
 import com.cowate.cuprumethyst.Block.SimpleBlocks;

@@ -1,6 +1,7 @@
 package com.cowate.cuprumethyst.Item;
 
-import com.cowate.cuprumethyst.Data.server.misc.ModTags;
+import com.cowate.cuprumethyst.Data.Server.misc.ModTags;
+import com.cowate.cuprumethyst.Enchantment.ModEnchantments;
 import com.cowate.cuprumethyst.Entity.Projectile.Pebble;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.Vanishable;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 
 import java.util.function.Predicate;
@@ -29,7 +31,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        //play sound
+        //play sound TODO
 
         ItemStack projectile = player.getProjectile(player.getItemInHand(hand));
         boolean hasProjectile = !projectile.isEmpty();
@@ -41,6 +43,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
             player.getCooldowns().addCooldown(this, 20);
             Pebble pebble = new Pebble(level, player);
             pebble.setPebbleType(Pebble.testPebbleType(projectile));
+            pebble.setHeftyEffect(EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.HEFTY.get(), player.getItemInHand(hand)) > 0);
             pebble.setOwner(player);
             pebble.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
             level.addFreshEntity(pebble);

@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.mixin;
+package com.cowate.cuprumethyst.Mixin;
 
 import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

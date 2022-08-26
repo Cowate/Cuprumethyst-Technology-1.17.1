@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.server.recipes;
+package com.cowate.cuprumethyst.Data.Server.recipes;
 
 import com.cowate.cuprumethyst.Initailize.ModRecipeSerializers;
 import com.google.gson.JsonObject;

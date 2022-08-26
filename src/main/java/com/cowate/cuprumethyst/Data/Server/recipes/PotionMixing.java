@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.server.recipes;
+package com.cowate.cuprumethyst.Data.Server.recipes;
 
 import com.cowate.cuprumethyst.Initailize.ModPotions;
 import com.google.common.collect.Lists;
@@ -65,7 +65,6 @@ public class PotionMixing {
     }
 
     static {
-        addMix(Potions.WATER, Potions.WATER, ModPotions.TESTING_LIQUID.get());
         addMix(ModPotions.CRIMILIDIN.get(), ModPotions.WARPILIDIN.get(), ModPotions.HYPERPLASIAL.get());
     }
 

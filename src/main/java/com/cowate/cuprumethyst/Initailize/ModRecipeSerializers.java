@@ -1,7 +1,7 @@
 package com.cowate.cuprumethyst.Initailize;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
-import com.cowate.cuprumethyst.Data.server.recipes.MixingRecipe;
+import com.cowate.cuprumethyst.Data.Server.recipes.MixingRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.fmllegacy.RegistryObject;

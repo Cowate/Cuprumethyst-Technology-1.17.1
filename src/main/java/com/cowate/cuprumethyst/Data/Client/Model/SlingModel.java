@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.client.Model;
+package com.cowate.cuprumethyst.Data.Client.Model;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
 import com.mojang.blaze3d.vertex.PoseStack;

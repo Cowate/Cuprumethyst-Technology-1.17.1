@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.server.misc;
+package com.cowate.cuprumethyst.Data.Server.misc;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
 import net.minecraft.resources.ResourceLocation;

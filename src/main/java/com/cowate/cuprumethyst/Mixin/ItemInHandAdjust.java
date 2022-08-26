@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.mixin;
+package com.cowate.cuprumethyst.Mixin;
 
 import com.cowate.cuprumethyst.Item.ComplexItems;
 import com.mojang.blaze3d.vertex.PoseStack;

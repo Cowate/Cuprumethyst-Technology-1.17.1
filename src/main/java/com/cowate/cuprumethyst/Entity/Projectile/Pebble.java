@@ -1,7 +1,7 @@
 package com.cowate.cuprumethyst.Entity.Projectile;
 
 
-import com.cowate.cuprumethyst.Data.server.misc.ModDamageSource;
+import com.cowate.cuprumethyst.Data.Server.misc.ModDamageSource;
 import com.cowate.cuprumethyst.Initailize.ModEntityType;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -35,7 +35,7 @@ import java.util.Arrays;
 
 public class Pebble extends Projectile implements ItemSupplier {
     private static final double PEBBLE_BASE_DAMAGE = 5.0D;
-    private static final EntityDataAccessor<Byte> PIERCE_LEVEL = SynchedEntityData.defineId(Pebble.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Boolean> HEFTY_EFFECT = SynchedEntityData.defineId(Pebble.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Byte> PEBBLE_TYPE = SynchedEntityData.defineId(Pebble.class, EntityDataSerializers.BYTE);
     private double baseDamage = 5.0D;
 
@@ -72,7 +72,7 @@ public class Pebble extends Projectile implements ItemSupplier {
 
     protected void defineSynchedData() {
         this.entityData.define(PEBBLE_TYPE, (byte)0);
-        this.entityData.define(PIERCE_LEVEL, (byte)0);
+        this.entityData.define(HEFTY_EFFECT, false);
     }
 
     public double getBaseDamage() {
@@ -81,11 +81,11 @@ public class Pebble extends Projectile implements ItemSupplier {
     public byte getPebbleType() {
         return this.entityData.get(PEBBLE_TYPE);
     }
-    public byte getPierceLevel() {
-        return this.entityData.get(PIERCE_LEVEL);
+    public boolean getHeftyEffect() {
+        return this.entityData.get(HEFTY_EFFECT);
     }
-    public void setPierceLevel(byte b) {
-        this.entityData.set(PIERCE_LEVEL, b);
+    public void setHeftyEffect(boolean b) {
+        this.entityData.set(HEFTY_EFFECT, b);
     }
     public void setPebbleType(byte b) {
         this.entityData.set(PEBBLE_TYPE, b);
@@ -180,9 +180,15 @@ public class Pebble extends Projectile implements ItemSupplier {
         Entity owner = this.getOwner();
         DamageSource damageSource;
         if (owner == null) {
-            damageSource = ModDamageSource.pebble(this, this);
+            if (getHeftyEffect())
+                damageSource = ModDamageSource.hefty_pebble(this, this);
+            else
+                damageSource = ModDamageSource.pebble(this, this);
         } else {
-            damageSource = ModDamageSource.pebble(this, owner);
+            if (getHeftyEffect())
+                damageSource = ModDamageSource.hefty_pebble(this, owner);
+            else
+                damageSource = ModDamageSource.pebble(this, owner);
             if (owner instanceof LivingEntity) {
                 ((LivingEntity)owner).setLastHurtMob(target);
             }
@@ -194,10 +200,9 @@ public class Pebble extends Projectile implements ItemSupplier {
                 LivingEntity livingEntity = (LivingEntity)target;
                 if (!this.level.isClientSide && owner instanceof ServerPlayer) {
                     ServerPlayer player = (ServerPlayer)owner;
-                    CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(player, Arrays.asList(target));
+                    CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(player, Arrays.asList(target)); // TODO
                 }
             }
-
         } else {
             this.discard();
         }

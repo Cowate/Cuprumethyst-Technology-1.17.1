@@ -1,6 +1,6 @@
 package com.cowate.cuprumethyst.Initailize;
 
-import com.cowate.cuprumethyst.Data.server.effects.HyperplasiaEffect;
+import com.cowate.cuprumethyst.Data.Server.effects.HyperplasiaEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.fmllegacy.RegistryObject;

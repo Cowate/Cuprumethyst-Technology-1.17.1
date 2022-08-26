@@ -1,11 +1,10 @@
-package com.cowate.cuprumethyst.Data.client;
+package com.cowate.cuprumethyst.Data.Client;
 
 
 import com.cowate.cuprumethyst.Cuprumethyst;
 import com.cowate.cuprumethyst.Initailize.ModEntityType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
@@ -16,8 +15,6 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Cuprumethyst.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEventSubscriber {
-
-
     @SubscribeEvent
     public static void onRegisterLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         //event.registerLayerDefinition();

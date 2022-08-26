@@ -1,7 +1,7 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
-import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
+import com.cowate.cuprumethyst.Data.Server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModBlockEntityTypes;
 import com.cowate.cuprumethyst.Initailize.ModRecipeSerializers;
 import com.cowate.cuprumethyst.Item.SimpleItems;

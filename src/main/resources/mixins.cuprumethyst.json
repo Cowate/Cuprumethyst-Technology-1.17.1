@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.cowate.cuprumethyst.mixin",
+  "package": "com.cowate.cuprumethyst.Mixin",
   "compatibilityLevel": "JAVA_16",
   "refmap": "cuprumethyst.refmap.json",
   "mixins": [

@@ -35,5 +35,11 @@
 
   "effect.cuprumethyst.hyperplasial" : "Hyperplasial",
 
-  "death.attack.hyperplasial" : "%1$s's body is collapsed."
+  "enchantment.cuprumethyst.hefty" : "Hefty",
+
+  "death.attack.hyperplasial" : "%1$s's body is collapsed.",
+  "death.attack.pebble.player" : "%1$s was crushed by %2$s.",
+  "death.attack.pebble" : "%1$s was crushed.",
+  "death.attack.hefty_pebble.player" : "%1$s got stunned to die by %2$s.",
+  "death.attack.hefty_pebble" : "%1$s got stunned to die."
 }

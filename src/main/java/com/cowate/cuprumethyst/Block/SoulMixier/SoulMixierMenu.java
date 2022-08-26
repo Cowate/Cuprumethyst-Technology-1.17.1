@@ -1,6 +1,6 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
-import com.cowate.cuprumethyst.Data.server.recipes.PotionMixing;
+import com.cowate.cuprumethyst.Data.Server.recipes.PotionMixing;
 import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.world.Container;

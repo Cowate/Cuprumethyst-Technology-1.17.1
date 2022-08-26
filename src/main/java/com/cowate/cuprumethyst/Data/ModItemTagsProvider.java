@@ -1,7 +1,7 @@
 package com.cowate.cuprumethyst.Data;
 
 import com.cowate.cuprumethyst.Cuprumethyst;
-import com.cowate.cuprumethyst.Data.server.misc.ModTags;
+import com.cowate.cuprumethyst.Data.Server.misc.ModTags;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;

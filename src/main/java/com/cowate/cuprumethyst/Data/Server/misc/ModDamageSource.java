@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.server.misc;
+package com.cowate.cuprumethyst.Data.Server.misc;
 
 import com.cowate.cuprumethyst.Entity.Projectile.Pebble;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,6 +17,9 @@ public class ModDamageSource extends DamageSource {
     }
     public static DamageSource pebble(Pebble pebble, @Nullable Entity entity) {
         return (new IndirectEntityDamageSource("pebble", pebble, entity)).setProjectile();
+    }
+    public static DamageSource hefty_pebble(Pebble pebble, @Nullable Entity entity) {
+        return (new IndirectEntityDamageSource("hefty_pebble", pebble, entity)).bypassInvul();
     }
     public boolean isHyperplasial(){
         return this.isHyperplasial;

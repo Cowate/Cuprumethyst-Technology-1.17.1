@@ -1,4 +1,4 @@
-package com.cowate.cuprumethyst.Data.client;
+package com.cowate.cuprumethyst.Data.Client;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.models.ModelProvider;
