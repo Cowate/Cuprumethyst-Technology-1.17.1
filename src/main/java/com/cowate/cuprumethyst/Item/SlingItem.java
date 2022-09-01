@@ -5,6 +5,7 @@ import com.cowate.cuprumethyst.Enchantment.ModEnchantments;
 import com.cowate.cuprumethyst.Entity.Projectile.Pebble;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -33,24 +34,26 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         //play sound TODO
 
-        ItemStack projectile = player.getProjectile(player.getItemInHand(hand));
+        ItemStack sling = player.getItemInHand(hand);
+        ItemStack projectile = player.getProjectile(sling);
         boolean hasProjectile = !projectile.isEmpty();
 
         if (!hasProjectile) {
-            return InteractionResultHolder.fail(player.getItemInHand(hand));
+            return InteractionResultHolder.fail(sling);
         }
         if (!level.isClientSide) {
             player.getCooldowns().addCooldown(this, 20);
             Pebble pebble = new Pebble(level, player);
             pebble.setPebbleType(Pebble.testPebbleType(projectile));
-            pebble.setHeftyEffect(EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.HEFTY.get(), player.getItemInHand(hand)) > 0);
+            pebble.setHeftyEffect(EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.HEFTY.get(), sling) > 0);
             pebble.setOwner(player);
             pebble.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
             level.addFreshEntity(pebble);
             projectile.shrink(1);
+            sling.hurtAndBreak(1, player, (consumer) ->{consumer.broadcastBreakEvent(EquipmentSlot.MAINHAND);});
         }
 
-        return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
+        return InteractionResultHolder.sidedSuccess(sling, level.isClientSide);
     }
 
 }

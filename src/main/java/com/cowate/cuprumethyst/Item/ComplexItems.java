@@ -12,7 +12,7 @@ public class ComplexItems {
 
     public static final RegistryObject<Item> SLING = register(
             "sling",
-            () -> new SlingItem(new Item.Properties().durability(152).tab(CreativeModeTab.TAB_COMBAT))
+            () -> new SlingItem(new Item.Properties().durability(80).tab(CreativeModeTab.TAB_COMBAT))
     );
 
 
