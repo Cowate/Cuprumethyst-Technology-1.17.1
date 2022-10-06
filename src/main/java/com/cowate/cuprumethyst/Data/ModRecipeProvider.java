@@ -2,6 +2,7 @@ package com.cowate.cuprumethyst.Data;
 
 import com.cowate.cuprumethyst.Block.SimpleBlocks;
 
+import com.cowate.cuprumethyst.Item.ComplexItems;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.DataGenerator;
@@ -66,7 +67,46 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .unlockedBy("has_raw_cuprumethyst_ingot", has(SimpleItems.RAW_CUPRUMETHYST_INGOT.get()))
                 .save(consumer, "raw_cuprumethyst_block_from_ingot");
-
+        ShapedRecipeBuilder.shaped(ComplexItems.CUPRUMETHYST_SWORD.get())
+                .define('#', SimpleItems.CUPRUMETHYST_INGOT.get())
+                .define('X', Items.STICK)
+                .pattern("#")
+                .pattern("#")
+                .pattern("X")
+                .unlockedBy("has_cuprumethyst_ingot", has(SimpleItems.CUPRUMETHYST_INGOT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ComplexItems.CUPRUMETHYST_SHOVEL.get())
+                .define('#', SimpleItems.CUPRUMETHYST_INGOT.get())
+                .define('X', Items.STICK)
+                .pattern("#")
+                .pattern("X")
+                .pattern("X")
+                .unlockedBy("has_cuprumethyst_ingot", has(SimpleItems.CUPRUMETHYST_INGOT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ComplexItems.CUPRUMETHYST_PICKAXE.get())
+                .define('#', SimpleItems.CUPRUMETHYST_INGOT.get())
+                .define('X', Items.STICK)
+                .pattern("###")
+                .pattern(" X ")
+                .pattern(" X ")
+                .unlockedBy("has_cuprumethyst_ingot", has(SimpleItems.CUPRUMETHYST_INGOT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ComplexItems.CUPRUMETHYST_AXE.get())
+                .define('#', SimpleItems.CUPRUMETHYST_INGOT.get())
+                .define('X', Items.STICK)
+                .pattern("##")
+                .pattern("#X")
+                .pattern(" X")
+                .unlockedBy("has_cuprumethyst_ingot", has(SimpleItems.CUPRUMETHYST_INGOT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ComplexItems.CUPRUMETHYST_HOE.get())
+                .define('#', SimpleItems.CUPRUMETHYST_INGOT.get())
+                .define('X', Items.STICK)
+                .pattern("##")
+                .pattern(" X")
+                .pattern(" X")
+                .unlockedBy("has_cuprumethyst_ingot", has(SimpleItems.CUPRUMETHYST_INGOT.get()))
+                .save(consumer);
         //Cooking
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(SimpleItems.RAW_CUPRUMETHYST_INGOT.get()), SimpleItems.CUPRUMETHYST_INGOT.get(), 1.0F, 200)
                 .unlockedBy("has_raw_cuprumethyst", has(SimpleItems.RAW_CUPRUMETHYST_INGOT.get())).save(consumer, "cuprumethyst" + "_from_smelting" + "raw_cuprumethyst");

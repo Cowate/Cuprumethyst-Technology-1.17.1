@@ -50,6 +50,7 @@ public class ModLootTableProvider extends LootTableProvider {
             dropSelf(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
             dropSelf(SimpleBlocks.CUPRUMETHYST_BLOCK.get());
             add(ComplexBlocks.SOUL_MIXIER.get(), BlockLoot::createNameableBlockEntityTable);
+            add(ComplexBlocks.PILLAGER_STATUE.get(), BlockLoot::createNameableBlockEntityTable);
         }
         @Override
         protected Iterable<Block> getKnownBlocks() {

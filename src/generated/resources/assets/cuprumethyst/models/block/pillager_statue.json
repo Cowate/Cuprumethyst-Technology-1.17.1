@@ -1,0 +1,143 @@
+{
+  "textures": {
+    "base": "cuprumethyst:block/pillager_statue_base"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        2,
+        14
+      ],
+      "faces": {
+        "down": {
+          "texture": "#base",
+          "uv": [
+            6.0,
+            0.0,
+            12.0,
+            6.0
+          ]
+        },
+        "up": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            0.0,
+            6.0,
+            6.0
+          ]
+        },
+        "north": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "south": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "west": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "east": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        2,
+        6
+      ],
+      "to": [
+        10,
+        3,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "#base",
+          "uv": [
+            2.0,
+            7.0,
+            4.0,
+            9.0
+          ]
+        },
+        "up": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            7.0,
+            2.0,
+            9.0
+          ]
+        },
+        "north": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            9.5
+          ]
+        },
+        "south": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            9.5
+          ]
+        },
+        "west": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            9.5
+          ]
+        },
+        "east": {
+          "texture": "#base",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            9.5
+          ]
+        }
+      }
+    }
+  ]
+}

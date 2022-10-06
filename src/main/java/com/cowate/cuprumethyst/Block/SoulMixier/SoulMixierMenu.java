@@ -1,7 +1,7 @@
 package com.cowate.cuprumethyst.Block.SoulMixier;
 
 import com.cowate.cuprumethyst.Data.Server.recipes.PotionMixing;
-import com.cowate.cuprumethyst.Initailize.ModContainerTypes;
+import com.cowate.cuprumethyst.Initailize.ModMenuTypes;
 import com.cowate.cuprumethyst.Item.SimpleItems;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -30,7 +30,7 @@ public class SoulMixierMenu extends AbstractContainerMenu {
     }
 
     public SoulMixierMenu(int id, Inventory inventory, Container container, ContainerData data) {
-        super(ModContainerTypes.SOUL_MIXIER.get(), id);
+        super(ModMenuTypes.SOUL_MIXIER.get(), id);
         checkContainerSize(container, 4);
         checkContainerDataCount(data, 2);
         this.soulMixier = container;

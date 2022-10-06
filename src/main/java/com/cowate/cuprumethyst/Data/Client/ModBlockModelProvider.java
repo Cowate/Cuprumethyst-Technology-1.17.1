@@ -16,7 +16,9 @@ public class ModBlockModelProvider extends BlockModelProvider {
 
     @Override
     protected void registerModels() {
+        // quick check in builder or provider
         soulMixierModel();
+        pillagerStatue();
 
     }
     private BlockModelBuilder withoutExitingParent(String name){
@@ -146,6 +148,32 @@ public class ModBlockModelProvider extends BlockModelProvider {
         soulMixierBottle("soul_mixier_empty2",
                 new float[]{8.0F, 2.0F, 10.0F, 8.0F, 11.0F, 15.0F},
                 new float[]{15.0F, 15.0F, 16.0F, 16.0F, 15.0F, 15.0F, 16.0F, 16.0F});
+
+    }
+    private void pillagerStatue() {
+        withoutExitingParent("pillager_statue")
+                .texture("base", "cuprumethyst:block/pillager_statue_base")
+                .element().from(2.0F, 0.0F, 2.0F).to(14.0F, 2.0F, 14.0F)
+                    .allFaces(((direction, faceBuilder) -> {
+                        faceBuilder.texture("#base");
+                        switch (direction) {
+                            case DOWN -> faceBuilder.uvs(6.0F, 0.0F, 12.0F, 6.0F);
+                            case UP -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 6.0F);
+                            case NORTH -> faceBuilder.uvs(0.0F, 6.0F, 6.0F, 7.0F);
+                            case SOUTH -> faceBuilder.uvs(0.0F, 6.0F, 6.0F, 7.0F);
+                            case WEST -> faceBuilder.uvs(0.0F, 6.0F, 6.0F, 7.0F);
+                            case EAST -> faceBuilder.uvs(0.0F, 6.0F, 6.0F, 7.0F);
+                        }
+                    })).end()
+                .element().from(6.0F, 2.0F, 6.0F).to(10.0F, 3.0F, 10.0F)
+                    .allFaces(((direction, faceBuilder) -> {
+                        faceBuilder.texture("#base");
+                        switch (direction) {
+                            case DOWN -> faceBuilder.uvs(2.0F, 7.0F, 4.0F, 9.0F);
+                            case UP -> faceBuilder.uvs(0.0F, 7.0F, 2.0F, 9.0F);
+                            case NORTH, SOUTH, WEST, EAST -> faceBuilder.uvs(0.0F, 9.0F, 2.0F, 9.5F);
+                        }
+                    })).end();
 
     }
 }

@@ -1,9 +1,12 @@
 package com.cowate.cuprumethyst;
 
 import com.cowate.cuprumethyst.Initailize.Registeries;
+import com.cowate.cuprumethyst.Utils.Data.PillagerStatueEvents;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -38,6 +41,13 @@ public class Cuprumethyst
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        IEventBus bus = MinecraftForge.EVENT_BUS;
+
+        bus.addGenericListener(Entity.class, PillagerStatueEvents::onAttachCapabilitiesPlayer);
+        bus.addListener(PillagerStatueEvents::onPlayerCloned);
+        bus.addListener(PillagerStatueEvents::onRegisterCapability);
+
     }
 
     private void setup(final FMLCommonSetupEvent event)

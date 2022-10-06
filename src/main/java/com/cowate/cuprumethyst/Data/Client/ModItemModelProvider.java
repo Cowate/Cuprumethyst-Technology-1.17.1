@@ -17,10 +17,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        // quick check in builder or provider
         withExistingParent("raw_cuprumethyst_block", modLoc("block/raw_cuprumethyst_block"));
         withExistingParent("cuprumethyst_block", modLoc("block/cuprumethyst_block"));
         withExistingParent("soul_mixier", modLoc("block/soul_mixier"));
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+        ModelFile itemHandheld = getExistingFile(mcLoc("item/handheld"));
 
         builder(itemGenerated, "amethyst_dust");
         builder(itemGenerated, "oxidized_copper_ingot");
@@ -31,13 +33,20 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "pebble_stone");
         builder(itemGenerated, "pebble_blackstone");
         builder(itemGenerated, "sling");
+        builder(itemGenerated, "pillager_statue");
+
+        builder(itemHandheld, "cuprumethyst_sword");
+        builder(itemHandheld, "cuprumethyst_shovel");
+        builder(itemHandheld, "cuprumethyst_pickaxe");
+        builder(itemHandheld, "cuprumethyst_axe");
+        builder(itemHandheld, "cuprumethyst_hoe");
 
         buildSlingInHand();
 
     }
 
-    private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    private ItemModelBuilder builder(ModelFile parent, String name) {
+        return getBuilder(name).parent(parent).texture("layer0", "item/" + name);
     }
 
     private ItemModelBuilder withoutExitingParent(String name){

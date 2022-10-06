@@ -1,6 +1,7 @@
 package com.cowate.cuprumethyst.Block;
 
 
+import com.cowate.cuprumethyst.Block.PillagerStatue.PillagerStatueBlock;
 import com.cowate.cuprumethyst.Block.SoulMixier.SoulMixierBlock;
 import com.cowate.cuprumethyst.Initailize.Registeries;
 import net.minecraft.core.Direction;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -23,6 +25,12 @@ public class ComplexBlocks{
             () -> new SoulMixierBlock(BlockBehaviour.Properties
                     .copy(Blocks.BREWING_STAND)),
             CreativeModeTab.TAB_BREWING
+    );
+    public static final RegistryObject<PillagerStatueBlock> PILLAGER_STATUE = register(
+            "pillager_statue",
+            () -> new PillagerStatueBlock(BlockBehaviour.Properties
+                    .of(Material.HEAVY_METAL).requiresCorrectToolForDrops().strength(5.0F, 1200.0F)),
+            CreativeModeTab.TAB_MISC
     );
 
     public static void register(){

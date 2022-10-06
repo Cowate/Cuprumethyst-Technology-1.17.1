@@ -17,6 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        // quick check in builder or provider
         simpleBlock(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
         simpleBlock(SimpleBlocks.CUPRUMETHYST_BLOCK.get());
         getMultipartBuilder(ComplexBlocks.SOUL_MIXIER.get())
@@ -33,6 +34,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     .condition(SoulMixierBlock.HAS_BOTTLE[1], false).end()
                 .part().modelFile(models().getExistingFile(new ResourceLocation(ModId, "block/soul_mixier_empty2"))).addModel()
                     .condition(SoulMixierBlock.HAS_BOTTLE[2], false).end();
+
+        getVariantBuilder(ComplexBlocks.PILLAGER_STATUE.get())
+                .partialState().setModels(new ConfiguredModel(models().getExistingFile(new ResourceLocation(ModId, "block/pillager_statue"))));
     }
 
 

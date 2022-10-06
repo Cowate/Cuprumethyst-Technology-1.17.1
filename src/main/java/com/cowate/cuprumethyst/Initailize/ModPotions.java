@@ -12,6 +12,10 @@ public class ModPotions {
             () -> new Potion(new MobEffectInstance(MobEffects.CONFUSION, 800, 3)));
     public static final RegistryObject<Potion> HYPERPLASIAL = Registeries.POTIONS.register("hyperplasial",
             () -> new Potion(new MobEffectInstance(ModMobEffects.HIPERPLASIAL.get(), 2000, 0)));
+    public static final RegistryObject<Potion> ENDERISIAL = Registeries.POTIONS.register("enderisial",
+            () -> new Potion());
+    public static final RegistryObject<Potion> WITHER = Registeries.POTIONS.register("wither",
+            () -> new Potion(new MobEffectInstance(MobEffects.WITHER, 1200)));
     public static void register() {
 
     }

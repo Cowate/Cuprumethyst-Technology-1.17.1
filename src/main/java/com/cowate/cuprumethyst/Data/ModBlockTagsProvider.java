@@ -21,9 +21,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(){
         // do not empty the tag set while tag in someone
         tag(ModTags.Blocks.RAW_CUPRUMETHYST_BLOCK).add(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get());
-        tag(BlockTags.NEEDS_IRON_TOOL).add(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get(), SimpleBlocks.CUPRUMETHYST_BLOCK.get());
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get(), SimpleBlocks.CUPRUMETHYST_BLOCK.get()).add(ComplexBlocks.SOUL_MIXIER.get());
-
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get(), SimpleBlocks.CUPRUMETHYST_BLOCK.get())
+                .add(ComplexBlocks.PILLAGER_STATUE.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(SimpleBlocks.RAW_CUPRUMETHYST_BLOCK.get(), SimpleBlocks.CUPRUMETHYST_BLOCK.get())
+                .add(ComplexBlocks.SOUL_MIXIER.get(), ComplexBlocks.PILLAGER_STATUE.get());
         tag(ModTags.Blocks.STORAGE_BLOCKS_OXIDIZED_COPPER).add(Blocks.OXIDIZED_COPPER);
         tag(ModTags.Blocks.STORAGE_BLOCKS_CUPRUMETHYST).add(SimpleBlocks.CUPRUMETHYST_BLOCK.get());
         tag(Tags.Blocks.STORAGE_BLOCKS).addTag(ModTags.Blocks.STORAGE_BLOCKS_OXIDIZED_COPPER).addTag(ModTags.Blocks.STORAGE_BLOCKS_CUPRUMETHYST);

@@ -51,7 +51,7 @@ public class Registeries {
         ModMobEffects.register();
         ComplexBlocks.register();
         ModPotions.register();
-        ModContainerTypes.register();
+        ModMenuTypes.register();
         ModEntityType.register();
         ModBlockEntityTypes.register();
         ModEnchantments.register();

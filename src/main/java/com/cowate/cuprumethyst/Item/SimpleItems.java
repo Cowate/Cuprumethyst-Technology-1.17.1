@@ -3,6 +3,7 @@ package com.cowate.cuprumethyst.Item;
 import com.cowate.cuprumethyst.Initailize.Registeries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import java.util.function.Supplier;
@@ -25,6 +26,7 @@ public class SimpleItems {
             "pebble_stone", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> PEBBLE_BLACKSTONE = registrySimpleItems(
             "pebble_blackstone", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
     public static void register() {
     }
 
